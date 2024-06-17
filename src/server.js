@@ -1,16 +1,19 @@
-import express from "express";
-import { join } from "node:path";
-const port = 3000;
+import app from "./index.js";
+import mongoose from "mongoose";
 
-const app = express();
+const port = process.env.PORT;
+const uri = process.env.DATABASEURI;
 
-// serve extra js static file
-app.use(express.static(join(import.meta.dirname, "public")))
-
-app.get("/", (_, res) => {
-  res.sendFile(join(import.meta.dirname, "public", "index.html"));
-});
-
-app.listen(port, () => {
-  console.log(`server started on port: ${port}`);
-});
+mongoose
+  .connect(uri, {
+    serverApi: { version: "1", strict: true, deprecationErrors: true },
+  })
+  .then(() => {
+    console.log("MongoDB connected");
+    app.listen(port, () => {
+      console.log(`server started on port: ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Error connecting to the database:", error);
+  });
