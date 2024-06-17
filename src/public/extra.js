@@ -1,19 +1,14 @@
-// Handle successful requests
-document.addEventListener("htmx:afterRequest", function (evt) {
-  if (evt.detail.target.id === "result") {
+document.addEventListener("htmx:beforeSwap", function (evt) {
+  // Handle successful requests
+  if (evt.detail.xhr.status === 200) {
+    console.log("event", evt);
+    evt.detail.shouldSwap = true;
+    // remove response message after 2 seconds
     setTimeout(() => {
-      evt.detail.target.innerHTML = "";
-    }, 5000); 
+      document.getElementById("result").innerHTML = "";
+    }, 2000);
+    //handle other status code
+  } else {
+    alert(evt.detail.serverResponse);
   }
 });
-
-// Handle error responses
-document.addEventListener("htmx:afterError", function (evt) {
-  console.log("Error event received", evt.detail);
-  if (evt.detail.target.id === "result") {
-    setTimeout(() => {
-      evt.detail.target.innerHTML = "Error occurred!"; // Example message
-    }, 5000);
-  }
-});
-

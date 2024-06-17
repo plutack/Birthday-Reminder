@@ -21,7 +21,6 @@ app.post("/", checkForm(formSchema), async (req, res) => {
   const { username, email, birthday } = req.body;
   let statusCode;
   try {
-    
     const userWithUsername = await User.findOne({ username });
     const userWithEmail = await User.findOne({ email });
 
@@ -30,6 +29,7 @@ app.post("/", checkForm(formSchema), async (req, res) => {
       throw new Error(`Username already exists`);
     }
     if (userWithEmail) {
+      statusCode = 409;
       throw new Error(`Email already exists`);
     }
     const newUser = new User({ username, email, birthday });
@@ -42,11 +42,10 @@ app.post("/", checkForm(formSchema), async (req, res) => {
       </div>
     `);
   } catch (err) {
-    res.status(statusCode || 403).send(`
-      <div id="result" class="mt-4 text-center text-red-600">
-        <p>Error: ${err.message}</p>
-      </div>
-    `);
+    if (statusCode) {
+      return res.status(statusCode).send(`${err}`);
+    }
+    return res.status(500).send("internal server error");
   }
 });
 
