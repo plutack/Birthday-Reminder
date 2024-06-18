@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import moment from "moment";
 
 const userSchema = mongoose.Schema(
   {
@@ -21,6 +22,14 @@ const userSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+userSchema.pre("save", function (next) {
+  // Convert birthday string to Date object
+  if (this.birthday) {
+    this.birthday = moment(this.birthday, "YYYY-MM-DD").toISOString();
+  }
+  next();
+});
 
 const User = mongoose.model("User", userSchema);
 
