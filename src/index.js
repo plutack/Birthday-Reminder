@@ -4,8 +4,7 @@ import formSchema from "./validation/formSchema.js";
 import checkForm from "./middleware/postMiddleware.js";
 import User from "./models/User.js";
 
-const port = process.env.PORT;
-const dbUri = process.env.DATABASEURI;
+
 const app = express();
 
 app.use(express.json());

@@ -1,5 +1,6 @@
 import app from "./index.js";
 import mongoose from "mongoose";
+import birthdayJob from "./cron/cronJob.js";
 
 const port = process.env.PORT;
 const uri = process.env.DATABASEURI;
@@ -10,6 +11,7 @@ mongoose
   })
   .then(() => {
     console.log("MongoDB connected");
+    birthdayJob.start();
     app.listen(port, () => {
       console.log(`server started on port: ${port}`);
     });
