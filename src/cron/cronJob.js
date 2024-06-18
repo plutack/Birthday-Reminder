@@ -43,13 +43,15 @@ const birthdayJob = new CronJob(cronTime, async () => {
         Date: today,
         Message: "Message sent to all celebrants",
       };
-      return console.log(JSON.stringify(successMessage));
+      console.log(JSON.stringify(successMessage));
+      return;
     }
     successMessage = {
       Date: today,
       Message: "No celebrants",
     };
-    return console.log(JSON.stringify(successMessage));
+    console.log(JSON.stringify(successMessage));
+    return;
   } catch (err) {
     const errInfo = {
       Error: err.name,

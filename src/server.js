@@ -12,6 +12,7 @@ mongoose
   .then(() => {
     console.log("MongoDB connected");
     birthdayJob.start();
+    console.log("Cron job started");
     app.listen(port, () => {
       console.log(`server started on port: ${port}`);
     });
