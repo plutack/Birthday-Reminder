@@ -27,7 +27,9 @@ To run this project locally;
    ```sh
    npm start
 
-7. (**OPTIONAL**) Check [here](#how-to-generate-google-gemini-api-key) to generate goole gemini api key for unique messages
+7. (**OPTIONAL**) Check [here](#how-to-generate-google-gemini-api-key) to generate google gemini api key for unique messages
+
+**IMPORTANT**: Remove apikey form .env if not needed
 
 ## How to generate appPassword env key for the app
 
