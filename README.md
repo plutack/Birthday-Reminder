@@ -10,7 +10,7 @@ To run this project locally;
 1. Clone this repo.
 
    ```sh
-   git clone https://github.com/your-username/birthday-reminder-node.git
+   git clone  https://github.com/plutack/Birthday-Reminder.git
    cd birthday-reminder-node
 
 2. Install dependencies with;
