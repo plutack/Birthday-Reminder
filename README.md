@@ -27,9 +27,15 @@ To run this project locally;
    ```sh
    npm start
 
+7. (**OPTIONAL**) Check [here](#how-to-generate-google-gemini-api-key) to generate goole gemini api key for unique messages
+
 ## How to generate appPassword env key for the app
 
 - Ensure two-step verification is enabled on the intended gmail account to be used.
 - Continue [here](https://myaccount.google.com/apppasswords) to generate app password.
 
-**NOTE**: App passwords can only be copied once after generation. Ensure you have them properly saved to avoid generating another one
+**NOTE**: App passwords can only be copied once after generation. Ensure you have them properly saved to avoid generating another one.
+
+## How to generate google gemini api key
+
+- Visit [google AI studio](https://aistudio.google.com/app/apikey) to generate a free api key.
