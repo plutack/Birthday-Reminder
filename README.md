@@ -21,7 +21,7 @@ To run this project locally;
     cp .env.sample .env
 
 4. Modify .env with the neccessary parameters.
-5. Check [here](#how-to-generate-apppassword-env-key-for-the-app) for steps to generate app password for node-mailer dependency
+5. Check [here](#how-to-generate-app-password-env-key-for-the-app) for steps to generate app password for node-mailer dependency
 6. Start app.
 
    ```sh
@@ -31,7 +31,7 @@ To run this project locally;
 
 **IMPORTANT**: Remove apikey form .env if not needed
 
-## How to generate appPassword env key for the app
+## How to generate app Password env key for the app
 
 - Ensure two-step verification is enabled on the intended gmail account to be used.
 - Continue [here](https://myaccount.google.com/apppasswords) to generate app password.
